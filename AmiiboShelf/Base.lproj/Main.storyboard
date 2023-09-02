@@ -1,24 +1,581 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49b-xf-v2E">
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Figure List-->
+        <scene sceneID="Ejw-Ca-UaW">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="lHg-D4-H2o" customClass="FigureViewController" customModule="AmiiboShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iXx-Dw-bRC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1316"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search figures..." translatesAutoresizingMaskIntoConstraints="NO" id="KXS-4E-SQF">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="56"/>
+                                <color key="barTintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R7o-T1-4DM">
+                                <rect key="frame" x="0.0" y="76" width="1024" height="1240"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Figure" rowHeight="120" id="ewU-gO-Kfx" customClass="FigureItemTableViewCell" customModule="AmiiboShelf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="1024" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ewU-gO-Kfx" id="Bjw-cC-EC4">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="1000" image="Amiibo-No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="SbY-bZ-bg9">
+                                                    <rect key="frame" x="15" y="15" width="98" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="98" id="X8q-6g-jUO"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Character" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNP-LE-yMv">
+                                                    <rect key="frame" x="132" y="15" width="876" height="57"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="173" id="G6i-Gg-IeO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Amiibo Series" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX8-0t-b3P">
+                                                    <rect key="frame" x="132" y="80" width="876" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="WlW-ym-ir9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="mX8-0t-b3P" firstAttribute="bottom" secondItem="SbY-bZ-bg9" secondAttribute="bottom" id="2d3-Ic-tMP"/>
+                                                <constraint firstAttribute="trailing" secondItem="gNP-LE-yMv" secondAttribute="trailing" constant="16" id="3vG-Bs-Wir"/>
+                                                <constraint firstItem="SbY-bZ-bg9" firstAttribute="bottom" secondItem="Bjw-cC-EC4" secondAttribute="bottomMargin" id="68L-Ch-nUh"/>
+                                                <constraint firstItem="gNP-LE-yMv" firstAttribute="top" secondItem="SbY-bZ-bg9" secondAttribute="top" id="9hY-Km-nRI"/>
+                                                <constraint firstItem="SbY-bZ-bg9" firstAttribute="centerY" secondItem="Bjw-cC-EC4" secondAttribute="centerY" id="Bnh-lS-XmS"/>
+                                                <constraint firstItem="mX8-0t-b3P" firstAttribute="top" secondItem="gNP-LE-yMv" secondAttribute="bottom" constant="8" symbolic="YES" id="Hsf-VR-Sgh"/>
+                                                <constraint firstItem="SbY-bZ-bg9" firstAttribute="leading" secondItem="Bjw-cC-EC4" secondAttribute="leadingMargin" constant="-1" id="b2t-Xk-xyI"/>
+                                                <constraint firstItem="gNP-LE-yMv" firstAttribute="leading" secondItem="SbY-bZ-bg9" secondAttribute="trailing" constant="19" id="bMu-vS-Qgd"/>
+                                                <constraint firstItem="gNP-LE-yMv" firstAttribute="leading" secondItem="mX8-0t-b3P" secondAttribute="leading" id="l67-Ar-jGZ"/>
+                                                <constraint firstItem="gNP-LE-yMv" firstAttribute="trailing" secondItem="mX8-0t-b3P" secondAttribute="trailing" id="uxh-eT-D2z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="amiiboImage" destination="SbY-bZ-bg9" id="FB2-OD-efh"/>
+                                            <outlet property="amiiboName" destination="gNP-LE-yMv" id="0hF-zR-hLa"/>
+                                            <outlet property="amiiboSeries" destination="mX8-0t-b3P" id="s22-W9-T5J"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2zP-Ww-xKO"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="R7o-T1-4DM" firstAttribute="bottom" secondItem="2zP-Ww-xKO" secondAttribute="bottom" id="Af0-sF-oFX"/>
+                            <constraint firstItem="R7o-T1-4DM" firstAttribute="leading" secondItem="KXS-4E-SQF" secondAttribute="leading" id="De6-Xs-a9J"/>
+                            <constraint firstItem="KXS-4E-SQF" firstAttribute="top" secondItem="2zP-Ww-xKO" secondAttribute="top" id="PhQ-Wx-RXM"/>
+                            <constraint firstItem="R7o-T1-4DM" firstAttribute="top" secondItem="KXS-4E-SQF" secondAttribute="bottom" id="QIE-fy-Y6x"/>
+                            <constraint firstItem="KXS-4E-SQF" firstAttribute="leading" secondItem="iXx-Dw-bRC" secondAttribute="leading" id="Qvs-P4-LX0"/>
+                            <constraint firstAttribute="trailing" secondItem="KXS-4E-SQF" secondAttribute="trailing" id="WXh-55-gBi"/>
+                            <constraint firstItem="R7o-T1-4DM" firstAttribute="trailing" secondItem="KXS-4E-SQF" secondAttribute="trailing" id="eNs-FK-Q4c"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Figure List" image="Figure-Icon" id="ev9-fq-OxC"/>
+                    <connections>
+                        <outlet property="amiiboTableView" destination="R7o-T1-4DM" id="rAZ-zH-uM9"/>
+                        <outlet property="searchBar" destination="KXS-4E-SQF" id="GXV-fY-MDP"/>
+                        <segue destination="0u0-bZ-HHa" kind="modal" identifier="Detail" modalTransitionStyle="crossDissolve" id="U0T-cY-JPu"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rbb-Rb-Gen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="953.90624999999989" y="561.78623718887263"/>
+        </scene>
+        <!--Card List-->
+        <scene sceneID="6rL-9R-gAA">
+            <objects>
+                <viewController id="ZfW-dq-oQL" customClass="CardViewController" customModule="AmiiboShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GZP-jO-aq4">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1316"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Giv-nW-XVm">
+                                <rect key="frame" x="0.0" y="76" width="1024" height="1240"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dBz-Tg-noB">
+                                    <size key="itemSize" width="105" height="144"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Card" id="Sof-ci-Tp7" customClass="CardItemCollectionViewCell" customModule="AmiiboShelf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="144"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="144"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Amiibo-No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="Ars-jh-8GD">
+                                                    <rect key="frame" x="1" y="8" width="101" height="84"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isabelle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6q-TR-QgM">
+                                                    <rect key="frame" x="1" y="100" width="101" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="aeL-SX-XPl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Ars-jh-8GD" firstAttribute="leading" secondItem="j6q-TR-QgM" secondAttribute="leading" id="1bt-jw-o8H"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Ars-jh-8GD" secondAttribute="trailing" constant="-5" id="789-39-qlR"/>
+                                            <constraint firstItem="Ars-jh-8GD" firstAttribute="trailing" secondItem="j6q-TR-QgM" secondAttribute="trailing" id="I52-Sd-boX"/>
+                                            <constraint firstItem="Ars-jh-8GD" firstAttribute="leading" secondItem="Sof-ci-Tp7" secondAttribute="leadingMargin" constant="-7" id="J5U-SU-9KE"/>
+                                            <constraint firstItem="j6q-TR-QgM" firstAttribute="top" secondItem="Ars-jh-8GD" secondAttribute="bottom" constant="8" symbolic="YES" id="Ufa-gW-a60"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="j6q-TR-QgM" secondAttribute="bottom" constant="6" id="j3n-xv-g02"/>
+                                            <constraint firstItem="Ars-jh-8GD" firstAttribute="top" secondItem="Sof-ci-Tp7" secondAttribute="topMargin" id="rrK-Yu-QFq"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="amiiboImage" destination="Ars-jh-8GD" id="jtw-Jf-Tad"/>
+                                            <outlet property="amiiboName" destination="j6q-TR-QgM" id="jDL-Vw-VbQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Search cards..." translatesAutoresizingMaskIntoConstraints="NO" id="2Rq-uZ-2Zn">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="56"/>
+                                <color key="barTintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aGB-pp-RaH"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2Rq-uZ-2Zn" firstAttribute="leading" secondItem="Giv-nW-XVm" secondAttribute="leading" id="Apu-lx-rd0"/>
+                            <constraint firstItem="2Rq-uZ-2Zn" firstAttribute="top" secondItem="aGB-pp-RaH" secondAttribute="top" id="HXK-ae-klH"/>
+                            <constraint firstItem="2Rq-uZ-2Zn" firstAttribute="trailing" secondItem="Giv-nW-XVm" secondAttribute="trailing" id="UZP-eh-LsV"/>
+                            <constraint firstItem="2Rq-uZ-2Zn" firstAttribute="leading" secondItem="GZP-jO-aq4" secondAttribute="leading" id="V89-mT-zYl"/>
+                            <constraint firstItem="Giv-nW-XVm" firstAttribute="bottom" secondItem="aGB-pp-RaH" secondAttribute="bottom" id="Xhq-Uo-BvG"/>
+                            <constraint firstItem="Giv-nW-XVm" firstAttribute="top" secondItem="2Rq-uZ-2Zn" secondAttribute="bottom" id="ZGe-Gx-fwQ"/>
+                            <constraint firstAttribute="trailing" secondItem="2Rq-uZ-2Zn" secondAttribute="trailing" id="hz9-20-KBe"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Card List" image="Card-Icon" id="ImM-N0-5b6"/>
+                    <connections>
+                        <outlet property="cardCollectionView" destination="Giv-nW-XVm" id="2La-OM-ljR"/>
+                        <outlet property="searchBar" destination="2Rq-uZ-2Zn" id="ucd-wc-s1v"/>
+                        <segue destination="0u0-bZ-HHa" kind="modal" identifier="Detail" modalTransitionStyle="crossDissolve" id="3HP-Mf-hh0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPR-GS-J5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954.375" y="1285.5633802816901"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="yER-Zs-Seh">
+            <objects>
+                <viewController title="Detail" id="0u0-bZ-HHa" customClass="AmiiboDetailViewController" customModule="AmiiboShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zgk-W1-abZ">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPd-8H-qG4">
+                                <rect key="frame" x="0.0" y="0.0" width="704" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="chD-xD-jk4"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Detail" id="wqh-mZ-eop">
+                                        <barButtonItem key="leftBarButtonItem" title="Return" id="kay-tB-dEf">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="returnButton:" destination="0u0-bZ-HHa" id="U4g-xH-ttu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="Amiibo-No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-17-7Z9">
+                                <rect key="frame" x="20" y="64" width="664" height="597.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="660" id="6d6-hs-Ku4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="220" id="WSJ-QC-NZq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pikachu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="32" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0F2-0h-O0P">
+                                <rect key="frame" x="20" y="669.5" width="664" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="96" id="L5S-QZ-RYt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="WxH-f2-spA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Super Smash Bros. series" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y74-ku-a0D">
+                                <rect key="frame" x="20" y="755.5" width="664" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="H7J-a9-c4g"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="84" id="Nok-0r-YTA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NA-Flag" translatesAutoresizingMaskIntoConstraints="NO" id="dbJ-Lg-k4j">
+                                <rect key="frame" x="20" y="836.5" width="40" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="1DU-f8-bjj"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="Y8l-EA-l3V"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="YiY-lA-t2l"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="hAr-xS-vza"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA Launch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xGc-by-IPk">
+                                <rect key="frame" x="66" y="836.5" width="231" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="77" id="MRB-zO-RhZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="231" id="fcy-42-M2k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EU-Flag" translatesAutoresizingMaskIntoConstraints="NO" id="6ex-8m-woi">
+                                <rect key="frame" x="20" y="885.5" width="40" height="41"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EU Launch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xau-Ta-YVg">
+                                <rect key="frame" x="66" y="885.5" width="231" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JP-Flag" translatesAutoresizingMaskIntoConstraints="NO" id="jr0-4A-yA7">
+                                <rect key="frame" x="407" y="836.5" width="40" height="41"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JP Launch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yP8-vd-ZJm">
+                                <rect key="frame" x="455" y="836.5" width="231" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AU-Flag" translatesAutoresizingMaskIntoConstraints="NO" id="sDQ-Ol-BcN">
+                                <rect key="frame" x="407" y="885.5" width="40" height="41"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AU Launch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CVT-XI-qBf">
+                                <rect key="frame" x="455" y="885.5" width="231" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Series: Pokémon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y21-wq-YFF">
+                                <rect key="frame" x="20" y="799.5" width="664" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="58" id="3lD-Hy-pea"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29" id="GAi-hX-Hsf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msf-Nh-rK4">
+                                <rect key="frame" x="20" y="934.5" width="664" height="41"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="Q8E-en-yGb"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="81" id="Y7N-l1-zHW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Add to Shelf">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleItemOnShelf:" destination="0u0-bZ-HHa" eventType="touchUpInside" id="Tgl-qy-QDe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qxj-Zx-hXo"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xau-Ta-YVg" firstAttribute="top" secondItem="xGc-by-IPk" secondAttribute="bottom" constant="8" symbolic="YES" id="044-Uw-w6g"/>
+                            <constraint firstItem="0F2-0h-O0P" firstAttribute="leading" secondItem="y74-ku-a0D" secondAttribute="leading" id="0bb-xy-m7q"/>
+                            <constraint firstItem="y21-wq-YFF" firstAttribute="top" secondItem="y74-ku-a0D" secondAttribute="bottom" constant="8" symbolic="YES" id="2nK-A1-fri"/>
+                            <constraint firstItem="CVT-XI-qBf" firstAttribute="leading" secondItem="sDQ-Ol-BcN" secondAttribute="trailing" constant="8" symbolic="YES" id="42c-PA-YJb"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="top" secondItem="xGc-by-IPk" secondAttribute="top" id="66v-vQ-sOa"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="baseline" secondItem="yP8-vd-ZJm" secondAttribute="baseline" id="6Rf-iG-O4h"/>
+                            <constraint firstItem="Jhw-17-7Z9" firstAttribute="leading" secondItem="Zgk-W1-abZ" secondAttribute="leadingMargin" id="8bE-u1-vMd"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="width" secondItem="6ex-8m-woi" secondAttribute="width" id="8rQ-Sd-tW7"/>
+                            <constraint firstItem="6ex-8m-woi" firstAttribute="top" secondItem="Xau-Ta-YVg" secondAttribute="top" id="9Jc-Fd-a7D"/>
+                            <constraint firstItem="y74-ku-a0D" firstAttribute="top" secondItem="0F2-0h-O0P" secondAttribute="bottom" constant="8" symbolic="YES" id="9WU-eI-yFx"/>
+                            <constraint firstItem="Jhw-17-7Z9" firstAttribute="centerX" secondItem="kPd-8H-qG4" secondAttribute="centerX" id="BuE-kc-G8p"/>
+                            <constraint firstItem="6ex-8m-woi" firstAttribute="top" secondItem="dbJ-Lg-k4j" secondAttribute="bottom" constant="8" symbolic="YES" id="D3m-ta-imc"/>
+                            <constraint firstItem="msf-Nh-rK4" firstAttribute="top" secondItem="6ex-8m-woi" secondAttribute="bottom" constant="8" symbolic="YES" id="Dy8-ar-j4E"/>
+                            <constraint firstItem="Xau-Ta-YVg" firstAttribute="firstBaseline" secondItem="CVT-XI-qBf" secondAttribute="firstBaseline" id="F5i-Ze-hOu"/>
+                            <constraint firstItem="msf-Nh-rK4" firstAttribute="top" secondItem="Xau-Ta-YVg" secondAttribute="bottom" constant="8" symbolic="YES" id="Fxu-qg-WI2"/>
+                            <constraint firstItem="kPd-8H-qG4" firstAttribute="leading" secondItem="Zgk-W1-abZ" secondAttribute="leading" id="G0d-sW-dg5"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="width" secondItem="Xau-Ta-YVg" secondAttribute="width" id="GHQ-OC-XdI"/>
+                            <constraint firstItem="jr0-4A-yA7" firstAttribute="leading" secondItem="sDQ-Ol-BcN" secondAttribute="leading" id="GsL-cY-Q7J"/>
+                            <constraint firstItem="y74-ku-a0D" firstAttribute="leading" secondItem="y21-wq-YFF" secondAttribute="leading" id="HaV-Gt-a8i"/>
+                            <constraint firstItem="qxj-Zx-hXo" firstAttribute="trailing" secondItem="yP8-vd-ZJm" secondAttribute="trailing" constant="18" id="Ilv-NW-8is"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="width" secondItem="sDQ-Ol-BcN" secondAttribute="width" id="J9x-eS-9Cl"/>
+                            <constraint firstItem="0F2-0h-O0P" firstAttribute="top" secondItem="Jhw-17-7Z9" secondAttribute="bottom" constant="8" symbolic="YES" id="LPX-x9-zCy"/>
+                            <constraint firstItem="Xau-Ta-YVg" firstAttribute="baseline" secondItem="CVT-XI-qBf" secondAttribute="baseline" id="NzU-QV-ELp"/>
+                            <constraint firstItem="6ex-8m-woi" firstAttribute="leading" secondItem="msf-Nh-rK4" secondAttribute="leading" id="PIH-iB-z53"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="leading" secondItem="dbJ-Lg-k4j" secondAttribute="trailing" constant="6" id="Pvp-5H-pCd"/>
+                            <constraint firstItem="y21-wq-YFF" firstAttribute="leading" secondItem="dbJ-Lg-k4j" secondAttribute="leading" id="Qav-aA-Oq6"/>
+                            <constraint firstItem="yP8-vd-ZJm" firstAttribute="trailing" secondItem="CVT-XI-qBf" secondAttribute="trailing" id="Qpz-GL-Hhp"/>
+                            <constraint firstItem="jr0-4A-yA7" firstAttribute="top" secondItem="yP8-vd-ZJm" secondAttribute="top" id="R6U-3o-r4U"/>
+                            <constraint firstItem="sDQ-Ol-BcN" firstAttribute="top" secondItem="jr0-4A-yA7" secondAttribute="bottom" constant="8" symbolic="YES" id="Vco-6b-Zp9"/>
+                            <constraint firstItem="Jhw-17-7Z9" firstAttribute="top" secondItem="kPd-8H-qG4" secondAttribute="bottom" constant="20" id="WCv-0V-nM3"/>
+                            <constraint firstAttribute="bottom" secondItem="msf-Nh-rK4" secondAttribute="bottom" constant="20" symbolic="YES" id="X8q-T2-eMA"/>
+                            <constraint firstItem="6ex-8m-woi" firstAttribute="height" secondItem="dbJ-Lg-k4j" secondAttribute="height" id="Yaq-j4-m7O"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="leading" secondItem="Xau-Ta-YVg" secondAttribute="leading" id="Zfp-VE-d6y"/>
+                            <constraint firstItem="Jhw-17-7Z9" firstAttribute="leading" secondItem="0F2-0h-O0P" secondAttribute="leading" id="a7j-Tt-FYl"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="top" secondItem="y21-wq-YFF" secondAttribute="bottom" constant="8" symbolic="YES" id="aK0-Zt-3qb"/>
+                            <constraint firstItem="Jhw-17-7Z9" firstAttribute="trailing" secondItem="Zgk-W1-abZ" secondAttribute="trailingMargin" id="aWg-DK-s9k"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="trailing" secondItem="Xau-Ta-YVg" secondAttribute="trailing" id="cXs-9I-uwP"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="height" secondItem="sDQ-Ol-BcN" secondAttribute="height" id="dN2-XH-aGm"/>
+                            <constraint firstItem="0F2-0h-O0P" firstAttribute="centerX" secondItem="kPd-8H-qG4" secondAttribute="centerX" id="fUx-iX-6Id"/>
+                            <constraint firstItem="jr0-4A-yA7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xGc-by-IPk" secondAttribute="trailing" constant="38" id="fjf-Lz-rd9"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="height" secondItem="jr0-4A-yA7" secondAttribute="height" id="glf-1J-BPY"/>
+                            <constraint firstItem="msf-Nh-rK4" firstAttribute="top" secondItem="sDQ-Ol-BcN" secondAttribute="bottom" constant="8" symbolic="YES" id="i5K-8k-tPb"/>
+                            <constraint firstItem="y74-ku-a0D" firstAttribute="centerX" secondItem="kPd-8H-qG4" secondAttribute="centerX" id="id0-x3-ct3"/>
+                            <constraint firstItem="sDQ-Ol-BcN" firstAttribute="top" secondItem="CVT-XI-qBf" secondAttribute="top" id="ivQ-ga-uuT"/>
+                            <constraint firstItem="yP8-vd-ZJm" firstAttribute="leading" secondItem="CVT-XI-qBf" secondAttribute="leading" id="jxx-mG-A5y"/>
+                            <constraint firstItem="y21-wq-YFF" firstAttribute="centerX" secondItem="kPd-8H-qG4" secondAttribute="centerX" id="kwH-v6-K8g"/>
+                            <constraint firstItem="msf-Nh-rK4" firstAttribute="centerX" secondItem="kPd-8H-qG4" secondAttribute="centerX" id="l8B-vj-keH"/>
+                            <constraint firstItem="6ex-8m-woi" firstAttribute="height" secondItem="msf-Nh-rK4" secondAttribute="height" id="lko-gF-pNJ"/>
+                            <constraint firstItem="kPd-8H-qG4" firstAttribute="top" secondItem="qxj-Zx-hXo" secondAttribute="top" id="mXB-pO-uoh"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="width" secondItem="CVT-XI-qBf" secondAttribute="width" id="ox0-NW-h1h"/>
+                            <constraint firstItem="yP8-vd-ZJm" firstAttribute="leading" secondItem="jr0-4A-yA7" secondAttribute="trailing" constant="8" symbolic="YES" id="pvV-5a-vnN"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="width" secondItem="yP8-vd-ZJm" secondAttribute="width" id="sBn-LV-fVk"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="trailing" secondItem="6ex-8m-woi" secondAttribute="trailing" id="v5F-FG-msM"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="leading" secondItem="6ex-8m-woi" secondAttribute="leading" id="wC8-8g-0Sr"/>
+                            <constraint firstItem="xGc-by-IPk" firstAttribute="firstBaseline" secondItem="yP8-vd-ZJm" secondAttribute="firstBaseline" id="x61-gB-GQG"/>
+                            <constraint firstItem="jr0-4A-yA7" firstAttribute="leading" relation="lessThanOrEqual" secondItem="xGc-by-IPk" secondAttribute="trailing" constant="690" id="y79-oi-dRe"/>
+                            <constraint firstItem="dbJ-Lg-k4j" firstAttribute="width" secondItem="jr0-4A-yA7" secondAttribute="width" id="zsb-ow-Q0A"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="amiiboGameSeries" destination="y21-wq-YFF" id="hwt-YJ-Wde"/>
+                        <outlet property="amiiboImage" destination="Jhw-17-7Z9" id="hv6-kl-8De"/>
+                        <outlet property="amiiboName" destination="0F2-0h-O0P" id="1DS-0s-oJ9"/>
+                        <outlet property="amiiboSeries" destination="y74-ku-a0D" id="BGL-ty-mft"/>
+                        <outlet property="auLaunchDate" destination="CVT-XI-qBf" id="i9B-kB-g83"/>
+                        <outlet property="euLaunchDate" destination="Xau-Ta-YVg" id="06Y-w1-9fg"/>
+                        <outlet property="jpLaunchDate" destination="yP8-vd-ZJm" id="zOS-SG-FXT"/>
+                        <outlet property="naLaunchDate" destination="xGc-by-IPk" id="0rd-kN-akc"/>
+                        <outlet property="shelfButton" destination="msf-Nh-rK4" id="cXR-BG-PU5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6IJ-7D-t1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="309.50704225352115"/>
+        </scene>
+        <!--My Shelf-->
+        <scene sceneID="bCf-hU-sDo">
+            <objects>
+                <viewController id="r8c-wV-2xE" customClass="MyShelfViewController" customModule="AmiiboShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fnh-hI-ju5">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1316"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yMb-dl-3Ig">
+                                <rect key="frame" x="0.0" y="76" width="1024" height="1240"/>
+                                <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ekW-7n-xJr">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShelfItem" id="4b8-vS-gwv" customClass="ShelfItemCollectionViewCell" customModule="AmiiboShelf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Amiibo-No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="fjY-BX-ECf">
+                                                    <rect key="frame" x="9" y="20" width="90" height="69"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="fjY-BX-ECf" firstAttribute="centerX" secondItem="4b8-vS-gwv" secondAttribute="centerX" id="0o6-Zv-fi9"/>
+                                            <constraint firstItem="fjY-BX-ECf" firstAttribute="leading" secondItem="4b8-vS-gwv" secondAttribute="leadingMargin" constant="-7" id="4y0-Ou-k8R"/>
+                                            <constraint firstItem="fjY-BX-ECf" firstAttribute="top" secondItem="4b8-vS-gwv" secondAttribute="topMargin" id="RGR-5q-bOh"/>
+                                            <constraint firstItem="fjY-BX-ECf" firstAttribute="centerY" secondItem="4b8-vS-gwv" secondAttribute="centerY" id="oDM-wN-vvA"/>
+                                        </constraints>
+                                        <size key="customSize" width="109" height="109"/>
+                                        <connections>
+                                            <outlet property="amiiboImage" destination="fjY-BX-ECf" id="Vuy-bg-yzI"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Search shelf..." translatesAutoresizingMaskIntoConstraints="NO" id="WPg-dG-aWY">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="56"/>
+                                <color key="barTintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iiT-gR-RJ2"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="WPg-dG-aWY" firstAttribute="top" secondItem="iiT-gR-RJ2" secondAttribute="top" id="6gp-ga-3uJ"/>
+                            <constraint firstAttribute="trailing" secondItem="WPg-dG-aWY" secondAttribute="trailing" id="IGX-xx-938"/>
+                            <constraint firstItem="yMb-dl-3Ig" firstAttribute="top" secondItem="WPg-dG-aWY" secondAttribute="bottom" id="dtu-Ke-eET"/>
+                            <constraint firstItem="yMb-dl-3Ig" firstAttribute="trailing" secondItem="iiT-gR-RJ2" secondAttribute="trailing" id="fgO-Q1-YrA"/>
+                            <constraint firstItem="WPg-dG-aWY" firstAttribute="leading" secondItem="Fnh-hI-ju5" secondAttribute="leading" id="hIm-Pe-TT0"/>
+                            <constraint firstItem="yMb-dl-3Ig" firstAttribute="bottom" secondItem="iiT-gR-RJ2" secondAttribute="bottom" id="kp1-3s-d2l"/>
+                            <constraint firstItem="yMb-dl-3Ig" firstAttribute="leading" secondItem="iiT-gR-RJ2" secondAttribute="leading" id="m0K-no-vhA"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="My Shelf" image="Shelf-Icon" id="ZuM-M6-WfX"/>
+                    <connections>
+                        <outlet property="searchBar" destination="WPg-dG-aWY" id="DCL-hB-ZWM"/>
+                        <outlet property="shelfCollectionView" destination="yMb-dl-3Ig" id="RCI-cb-nh8"/>
+                        <segue destination="0u0-bZ-HHa" kind="presentation" identifier="Detail" modalTransitionStyle="crossDissolve" id="WOB-fj-FFv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6Z-6v-PJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="-152.47376311844079"/>
+        </scene>
+        <!--Amiibo Preview-->
+        <scene sceneID="s2d-c1-H5c">
+            <objects>
+                <viewController storyboardIdentifier="AmiiboPreview" title="Amiibo Preview" modalPresentationStyle="overCurrentContext" id="RvL-bL-9dz" customClass="AmiiboPreviewViewController" customModule="AmiiboShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gk9-f0-By2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Amiibo-No-Image" translatesAutoresizingMaskIntoConstraints="NO" id="0Bn-T6-J0c">
+                                <rect key="frame" x="16" y="20" width="343" height="320"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BiR-1k-vug">
+                                <rect key="frame" x="16" y="395" width="343" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="YBT-Q2-pVQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztc-QZ-frg">
+                                <rect key="frame" x="16" y="348" width="343" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="4oD-fV-tDo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyW-i8-uwY">
+                                <rect key="frame" x="16" y="442" width="343" height="38"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="1tz-7q-u3I"/>
+                                </constraints>
+                                <state key="normal" title="Return">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnBack:" destination="RvL-bL-9dz" eventType="touchUpInside" id="ov5-hh-sv4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qIG-Y8-EyN"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ztc-QZ-frg" firstAttribute="trailing" secondItem="BiR-1k-vug" secondAttribute="trailing" id="1ac-bf-8LJ"/>
+                            <constraint firstItem="qIG-Y8-EyN" firstAttribute="trailing" secondItem="0Bn-T6-J0c" secondAttribute="trailing" constant="16" id="4wa-AE-Yd5"/>
+                            <constraint firstItem="0Bn-T6-J0c" firstAttribute="top" secondItem="qIG-Y8-EyN" secondAttribute="top" id="5BH-HK-2g9"/>
+                            <constraint firstItem="BiR-1k-vug" firstAttribute="leading" secondItem="vyW-i8-uwY" secondAttribute="leading" id="5Nh-Ft-hI7"/>
+                            <constraint firstItem="0Bn-T6-J0c" firstAttribute="leading" secondItem="qIG-Y8-EyN" secondAttribute="leading" constant="16" id="7JB-FE-lQj"/>
+                            <constraint firstAttribute="bottom" secondItem="vyW-i8-uwY" secondAttribute="bottom" constant="20" symbolic="YES" id="F4O-Fo-Qgi"/>
+                            <constraint firstItem="0Bn-T6-J0c" firstAttribute="top" secondItem="qIG-Y8-EyN" secondAttribute="top" id="L1H-2o-aB2"/>
+                            <constraint firstItem="Ztc-QZ-frg" firstAttribute="leading" secondItem="0Bn-T6-J0c" secondAttribute="leading" id="NQl-gA-whN"/>
+                            <constraint firstItem="BiR-1k-vug" firstAttribute="top" secondItem="Ztc-QZ-frg" secondAttribute="bottom" constant="8" symbolic="YES" id="QC3-GK-qN8"/>
+                            <constraint firstItem="Ztc-QZ-frg" firstAttribute="top" secondItem="0Bn-T6-J0c" secondAttribute="bottom" constant="8" id="SrP-IU-8cd"/>
+                            <constraint firstItem="vyW-i8-uwY" firstAttribute="top" secondItem="BiR-1k-vug" secondAttribute="bottom" constant="8" symbolic="YES" id="XCP-Mp-Ajn"/>
+                            <constraint firstItem="0Bn-T6-J0c" firstAttribute="leading" secondItem="qIG-Y8-EyN" secondAttribute="leading" constant="16" id="gZJ-Do-7Ix"/>
+                            <constraint firstItem="Ztc-QZ-frg" firstAttribute="leading" secondItem="BiR-1k-vug" secondAttribute="leading" id="gor-Cz-lyY"/>
+                            <constraint firstItem="qIG-Y8-EyN" firstAttribute="trailing" secondItem="0Bn-T6-J0c" secondAttribute="trailing" constant="16" id="m6z-PE-1FG"/>
+                            <constraint firstItem="Ztc-QZ-frg" firstAttribute="trailing" secondItem="0Bn-T6-J0c" secondAttribute="trailing" id="rku-if-BT1"/>
+                            <constraint firstItem="BiR-1k-vug" firstAttribute="trailing" secondItem="vyW-i8-uwY" secondAttribute="trailing" id="s4W-QJ-EbN"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="375" height="500"/>
+                    <connections>
+                        <outlet property="amiiboImagePreview" destination="0Bn-T6-J0c" id="6B1-6E-qE3"/>
+                        <outlet property="amiiboNamePreview" destination="Ztc-QZ-frg" id="Uhi-tY-pHu"/>
+                        <outlet property="amiiboSeriesPreview" destination="BiR-1k-vug" id="YX6-57-yGF"/>
+                        <outlet property="returnButton" destination="vyW-i8-uwY" id="mdu-fR-VwD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unN-bF-b6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1979.0625" y="-454.22535211267603"/>
+        </scene>
+        <!--Custom Tab Bar Controller-->
+        <scene sceneID="ZTh-D9-Yyn">
+            <objects>
+                <tabBarController id="49b-xf-v2E" customClass="CustomTabBarController" customModule="AmiiboShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="UzW-1z-Nb2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lHg-D4-H2o" kind="relationship" relationship="viewControllers" id="5GQ-bk-ev8"/>
+                        <segue destination="ZfW-dq-oQL" kind="relationship" relationship="viewControllers" id="AYf-sE-7V7"/>
+                        <segue destination="r8c-wV-2xE" kind="relationship" relationship="viewControllers" id="dII-0C-ZYw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJ9-U0-oMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5" y="232"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3HP-Mf-hh0"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="AU-Flag" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="Amiibo-No-Image" width="114.33333587646484" height="174"/>
+        <image name="Card-Icon" width="25" height="25"/>
+        <image name="EU-Flag" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="Figure-Icon" width="25" height="25"/>
+        <image name="JP-Flag" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="NA-Flag" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="Shelf-Icon" width="25" height="25"/>
+    </resources>
 </document>

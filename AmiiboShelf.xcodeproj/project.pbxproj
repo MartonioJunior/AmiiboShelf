@@ -7,17 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300C2A7D217751CA00F29660 /* AmiiboAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C2A7C217751CA00F29660 /* AmiiboAPIManager.swift */; };
+		300C8DAA2179F6A800BB5E54 /* AmiiboPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C8DA92179F6A800BB5E54 /* AmiiboPreviewViewController.swift */; };
+		300C8DAD2179FBB600BB5E54 /* AmiiboDisplayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C8DAC2179FBB600BB5E54 /* AmiiboDisplayProtocol.swift */; };
+		300CD056217E1D2700955785 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD055217E1D2700955785 /* NotificationService.swift */; };
+		300CD05A217E1D2700955785 /* AmiiboUpdateService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 300CD053217E1D2700955785 /* AmiiboUpdateService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		300CD6C0217604150075FA2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6BF217604150075FA2F /* AppDelegate.swift */; };
-		300CD6C2217604150075FA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6C1217604150075FA2F /* ViewController.swift */; };
+		300CD6C2217604150075FA2F /* MyShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6C1217604150075FA2F /* MyShelfViewController.swift */; };
 		300CD6C5217604150075FA2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300CD6C3217604150075FA2F /* Main.storyboard */; };
 		300CD6C8217604150075FA2F /* AmiiboShelf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6C6217604150075FA2F /* AmiiboShelf.xcdatamodeld */; };
 		300CD6CA217604190075FA2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 300CD6C9217604190075FA2F /* Assets.xcassets */; };
 		300CD6CD217604190075FA2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300CD6CB217604190075FA2F /* LaunchScreen.storyboard */; };
 		300CD6D8217604190075FA2F /* AmiiboShelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6D7217604190075FA2F /* AmiiboShelfTests.swift */; };
 		300CD6E3217604190075FA2F /* AmiiboShelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6E2217604190075FA2F /* AmiiboShelfUITests.swift */; };
+		300CD6F221760C7B0075FA2F /* ShelfItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6F121760C7B0075FA2F /* ShelfItemCollectionViewCell.swift */; };
+		300CD6F421760DC60075FA2F /* FigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6F321760DC60075FA2F /* FigureViewController.swift */; };
+		300CD6F621760DE60075FA2F /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6F521760DE60075FA2F /* CardViewController.swift */; };
+		300CD6F8217614490075FA2F /* FigureItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6F7217614490075FA2F /* FigureItemTableViewCell.swift */; };
+		300CD6FE21761CA10075FA2F /* CardItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6FD21761CA10075FA2F /* CardItemCollectionViewCell.swift */; };
+		300CD7002176208B0075FA2F /* AmiiboDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD6FF2176208B0075FA2F /* AmiiboDetailViewController.swift */; };
+		300CD702217620AD0075FA2F /* AmiiboShelfDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD701217620AD0075FA2F /* AmiiboShelfDelegate.swift */; };
+		300CD707217623F40075FA2F /* AmiiboViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD706217623F40075FA2F /* AmiiboViewController.swift */; };
+		300CD7092176266C0075FA2F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD7082176266C0075FA2F /* CoreDataManager.swift */; };
+		300CD70C21762D760075FA2F /* AmiiboImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD70B21762D760075FA2F /* AmiiboImageManager.swift */; };
+		300CD712217630D10075FA2F /* Amiibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CD711217630D10075FA2F /* Amiibo.swift */; };
+		300D0A3A217F412300CB2D71 /* AmiiboDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300D0A39217F412300CB2D71 /* AmiiboDataDelegate.swift */; };
+		3010429221809BDD003CB121 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010429121809BDD003CB121 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		300CD058217E1D2700955785 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 300CD6B4217604150075FA2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 300CD052217E1D2700955785;
+			remoteInfo = AmiiboUpdateService;
+		};
 		300CD6D4217604190075FA2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 300CD6B4217604150075FA2F /* Project object */;
@@ -34,10 +59,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		300CD05E217E1D2700955785 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				300CD05A217E1D2700955785 /* AmiiboUpdateService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		300C2A7C217751CA00F29660 /* AmiiboAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboAPIManager.swift; sourceTree = "<group>"; };
+		300C8DA92179F6A800BB5E54 /* AmiiboPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboPreviewViewController.swift; sourceTree = "<group>"; };
+		300C8DAC2179FBB600BB5E54 /* AmiiboDisplayProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboDisplayProtocol.swift; sourceTree = "<group>"; };
+		300CD04E217E0DD300955785 /* AmiiboShelf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AmiiboShelf.entitlements; sourceTree = "<group>"; };
+		300CD053217E1D2700955785 /* AmiiboUpdateService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AmiiboUpdateService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		300CD055217E1D2700955785 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		300CD057217E1D2700955785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300CD6BC217604150075FA2F /* AmiiboShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmiiboShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300CD6BF217604150075FA2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		300CD6C1217604150075FA2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		300CD6C1217604150075FA2F /* MyShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShelfViewController.swift; sourceTree = "<group>"; };
 		300CD6C4217604150075FA2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		300CD6C7217604150075FA2F /* AmiiboShelf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AmiiboShelf.xcdatamodel; sourceTree = "<group>"; };
 		300CD6C9217604190075FA2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,9 +95,29 @@
 		300CD6DE217604190075FA2F /* AmiiboShelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmiiboShelfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		300CD6E2217604190075FA2F /* AmiiboShelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboShelfUITests.swift; sourceTree = "<group>"; };
 		300CD6E4217604190075FA2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300CD6F121760C7B0075FA2F /* ShelfItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		300CD6F321760DC60075FA2F /* FigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureViewController.swift; sourceTree = "<group>"; };
+		300CD6F521760DE60075FA2F /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		300CD6F7217614490075FA2F /* FigureItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureItemTableViewCell.swift; sourceTree = "<group>"; };
+		300CD6FD21761CA10075FA2F /* CardItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		300CD6FF2176208B0075FA2F /* AmiiboDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboDetailViewController.swift; sourceTree = "<group>"; };
+		300CD701217620AD0075FA2F /* AmiiboShelfDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboShelfDelegate.swift; sourceTree = "<group>"; };
+		300CD706217623F40075FA2F /* AmiiboViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboViewController.swift; sourceTree = "<group>"; };
+		300CD7082176266C0075FA2F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		300CD70B21762D760075FA2F /* AmiiboImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboImageManager.swift; sourceTree = "<group>"; };
+		300CD711217630D10075FA2F /* Amiibo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amiibo.swift; sourceTree = "<group>"; };
+		300D0A39217F412300CB2D71 /* AmiiboDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmiiboDataDelegate.swift; sourceTree = "<group>"; };
+		3010429121809BDD003CB121 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		300CD050217E1D2700955785 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		300CD6B9217604150075FA2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,12 +142,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300C8DAB2179FB9800BB5E54 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				300C8DAC2179FBB600BB5E54 /* AmiiboDisplayProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		300CD054217E1D2700955785 /* AmiiboUpdateService */ = {
+			isa = PBXGroup;
+			children = (
+				300CD055217E1D2700955785 /* NotificationService.swift */,
+				300CD057217E1D2700955785 /* Info.plist */,
+			);
+			path = AmiiboUpdateService;
+			sourceTree = "<group>";
+		};
 		300CD6B3217604150075FA2F = {
 			isa = PBXGroup;
 			children = (
 				300CD6BE217604150075FA2F /* AmiiboShelf */,
 				300CD6D6217604190075FA2F /* AmiiboShelfTests */,
 				300CD6E1217604190075FA2F /* AmiiboShelfUITests */,
+				300CD054217E1D2700955785 /* AmiiboUpdateService */,
 				300CD6BD217604150075FA2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +176,7 @@
 				300CD6BC217604150075FA2F /* AmiiboShelf.app */,
 				300CD6D3217604190075FA2F /* AmiiboShelfTests.xctest */,
 				300CD6DE217604190075FA2F /* AmiiboShelfUITests.xctest */,
+				300CD053217E1D2700955785 /* AmiiboUpdateService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,11 +184,16 @@
 		300CD6BE217604150075FA2F /* AmiiboShelf */ = {
 			isa = PBXGroup;
 			children = (
-				300CD6BF217604150075FA2F /* AppDelegate.swift */,
-				300CD6C1217604150075FA2F /* ViewController.swift */,
+				300CD04E217E0DD300955785 /* AmiiboShelf.entitlements */,
+				300C8DAB2179FB9800BB5E54 /* Protocols */,
+				300CD710217630C10075FA2F /* Model */,
+				300CD70A21762D4E0075FA2F /* Managers */,
+				300CD705217620DD0075FA2F /* Delegates */,
+				300CD704217620C80075FA2F /* Cells */,
+				300CD703217620B50075FA2F /* View Controllers */,
 				300CD6C3217604150075FA2F /* Main.storyboard */,
-				300CD6C9217604190075FA2F /* Assets.xcassets */,
 				300CD6CB217604190075FA2F /* LaunchScreen.storyboard */,
+				300CD6C9217604190075FA2F /* Assets.xcassets */,
 				300CD6CE217604190075FA2F /* Info.plist */,
 				300CD6C6217604150075FA2F /* AmiiboShelf.xcdatamodeld */,
 			);
@@ -128,9 +218,78 @@
 			path = AmiiboShelfUITests;
 			sourceTree = "<group>";
 		};
+		300CD703217620B50075FA2F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				300CD706217623F40075FA2F /* AmiiboViewController.swift */,
+				300CD6C1217604150075FA2F /* MyShelfViewController.swift */,
+				300CD6F321760DC60075FA2F /* FigureViewController.swift */,
+				300CD6F521760DE60075FA2F /* CardViewController.swift */,
+				300CD6FF2176208B0075FA2F /* AmiiboDetailViewController.swift */,
+				300C8DA92179F6A800BB5E54 /* AmiiboPreviewViewController.swift */,
+				3010429121809BDD003CB121 /* CustomTabBarController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		300CD704217620C80075FA2F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				300CD6F121760C7B0075FA2F /* ShelfItemCollectionViewCell.swift */,
+				300CD6F7217614490075FA2F /* FigureItemTableViewCell.swift */,
+				300CD6FD21761CA10075FA2F /* CardItemCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		300CD705217620DD0075FA2F /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				300CD6BF217604150075FA2F /* AppDelegate.swift */,
+				300CD701217620AD0075FA2F /* AmiiboShelfDelegate.swift */,
+				300D0A39217F412300CB2D71 /* AmiiboDataDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		300CD70A21762D4E0075FA2F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				300CD7082176266C0075FA2F /* CoreDataManager.swift */,
+				300CD70B21762D760075FA2F /* AmiiboImageManager.swift */,
+				300C2A7C217751CA00F29660 /* AmiiboAPIManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		300CD710217630C10075FA2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				300CD711217630D10075FA2F /* Amiibo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		300CD052217E1D2700955785 /* AmiiboUpdateService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 300CD05B217E1D2700955785 /* Build configuration list for PBXNativeTarget "AmiiboUpdateService" */;
+			buildPhases = (
+				300CD04F217E1D2700955785 /* Sources */,
+				300CD050217E1D2700955785 /* Frameworks */,
+				300CD051217E1D2700955785 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmiiboUpdateService;
+			productName = AmiiboUpdateService;
+			productReference = 300CD053217E1D2700955785 /* AmiiboUpdateService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		300CD6BB217604150075FA2F /* AmiiboShelf */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 300CD6E7217604190075FA2F /* Build configuration list for PBXNativeTarget "AmiiboShelf" */;
@@ -138,10 +297,12 @@
 				300CD6B8217604150075FA2F /* Sources */,
 				300CD6B9217604150075FA2F /* Frameworks */,
 				300CD6BA217604150075FA2F /* Resources */,
+				300CD05E217E1D2700955785 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				300CD059217E1D2700955785 /* PBXTargetDependency */,
 			);
 			name = AmiiboShelf;
 			productName = AmiiboShelf;
@@ -194,8 +355,19 @@
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Martônio Júnior";
 				TargetAttributes = {
+					300CD052217E1D2700955785 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					300CD6BB217604150075FA2F = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					300CD6D2217604190075FA2F = {
 						CreatedOnToolsVersion = 10.0;
@@ -223,11 +395,19 @@
 				300CD6BB217604150075FA2F /* AmiiboShelf */,
 				300CD6D2217604190075FA2F /* AmiiboShelfTests */,
 				300CD6DD217604190075FA2F /* AmiiboShelfUITests */,
+				300CD052217E1D2700955785 /* AmiiboUpdateService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		300CD051217E1D2700955785 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		300CD6BA217604150075FA2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,12 +435,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		300CD04F217E1D2700955785 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				300CD056217E1D2700955785 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		300CD6B8217604150075FA2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				300CD6C2217604150075FA2F /* ViewController.swift in Sources */,
+				300CD6C2217604150075FA2F /* MyShelfViewController.swift in Sources */,
+				300CD6F221760C7B0075FA2F /* ShelfItemCollectionViewCell.swift in Sources */,
+				3010429221809BDD003CB121 /* CustomTabBarController.swift in Sources */,
+				300C2A7D217751CA00F29660 /* AmiiboAPIManager.swift in Sources */,
+				300D0A3A217F412300CB2D71 /* AmiiboDataDelegate.swift in Sources */,
+				300CD712217630D10075FA2F /* Amiibo.swift in Sources */,
+				300CD702217620AD0075FA2F /* AmiiboShelfDelegate.swift in Sources */,
+				300CD70C21762D760075FA2F /* AmiiboImageManager.swift in Sources */,
+				300C8DAD2179FBB600BB5E54 /* AmiiboDisplayProtocol.swift in Sources */,
+				300CD7002176208B0075FA2F /* AmiiboDetailViewController.swift in Sources */,
+				300CD6F621760DE60075FA2F /* CardViewController.swift in Sources */,
+				300CD707217623F40075FA2F /* AmiiboViewController.swift in Sources */,
+				300CD7092176266C0075FA2F /* CoreDataManager.swift in Sources */,
+				300C8DAA2179F6A800BB5E54 /* AmiiboPreviewViewController.swift in Sources */,
+				300CD6F421760DC60075FA2F /* FigureViewController.swift in Sources */,
+				300CD6F8217614490075FA2F /* FigureItemTableViewCell.swift in Sources */,
 				300CD6C8217604150075FA2F /* AmiiboShelf.xcdatamodeld in Sources */,
+				300CD6FE21761CA10075FA2F /* CardItemCollectionViewCell.swift in Sources */,
 				300CD6C0217604150075FA2F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +488,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		300CD059217E1D2700955785 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 300CD052217E1D2700955785 /* AmiiboUpdateService */;
+			targetProxy = 300CD058217E1D2700955785 /* PBXContainerItemProxy */;
+		};
 		300CD6D5217604190075FA2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 300CD6BB217604150075FA2F /* AmiiboShelf */;
@@ -316,6 +525,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		300CD05C217E1D2700955785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U3BJSYBS9R;
+				INFOPLIST_FILE = AmiiboUpdateService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = martonioacademy.AmiiboShelf.AmiiboUpdateService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		300CD05D217E1D2700955785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U3BJSYBS9R;
+				INFOPLIST_FILE = AmiiboUpdateService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = martonioacademy.AmiiboShelf.AmiiboUpdateService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		300CD6E5217604190075FA2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -435,7 +682,9 @@
 		300CD6E8217604190075FA2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AmiiboShelf/AmiiboShelf.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U3BJSYBS9R;
 				INFOPLIST_FILE = AmiiboShelf/Info.plist;
@@ -453,7 +702,9 @@
 		300CD6E9217604190075FA2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AmiiboShelf/AmiiboShelf.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U3BJSYBS9R;
 				INFOPLIST_FILE = AmiiboShelf/Info.plist;
@@ -553,6 +804,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		300CD05B217E1D2700955785 /* Build configuration list for PBXNativeTarget "AmiiboUpdateService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				300CD05C217E1D2700955785 /* Debug */,
+				300CD05D217E1D2700955785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		300CD6B7217604150075FA2F /* Build configuration list for PBXProject "AmiiboShelf" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
