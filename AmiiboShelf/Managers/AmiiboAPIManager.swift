@@ -51,6 +51,4 @@ class AmiiboAPIManager {
     }
 }
 
-struct AmiiboAPIStruct: Codable {
-    var amiibo: [AmiiboAPIModel]
-}
+
