@@ -9,14 +9,18 @@
 import UIKit
 
 class MyShelfViewController: AmiiboViewController {
+    // MARK: Outlets
     @IBOutlet weak var shelfCollectionView: UICollectionView!
     
+    // MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         AmiiboDetailViewController.delegate = self
         shelfCollectionView.delegate = self
         shelfCollectionView.dataSource = self
-        amiiboItens = Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllShelfAmiibo())
+
+        amiiboItens = getShelfAmiibo()
         registerForPreviewing(with: self, sourceView: shelfCollectionView)
         if amiiboItens.count == 0 {
             showNoAmiiboOnShelfAlert()
@@ -35,7 +39,7 @@ class MyShelfViewController: AmiiboViewController {
     }
     
     override func reloadData() {
-        amiiboItens = Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllShelfAmiibo())
+        amiiboItens = getShelfAmiibo()
         updateView()
     }
     
@@ -44,10 +48,16 @@ class MyShelfViewController: AmiiboViewController {
     }
     
     override func source(forLocation location: CGPoint) -> AmiiboDisplayProtocol? {
-        guard let indexPath = shelfCollectionView.indexPathForItem(at: location), let cell = shelfCollectionView.cellForItem(at: indexPath) as? ShelfItemCollectionViewCell else {
+        guard let indexPath = shelfCollectionView.indexPathForItem(at: location),
+              let cell = shelfCollectionView.cellForItem(at: indexPath) as? ShelfItemCollectionViewCell else {
             return nil
         }
         return cell
+    }
+    
+    // MARK: Methods
+    func getShelfAmiibo() -> [Amiibo] {
+        Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllShelfAmiibo())
     }
     
     func showNoAmiiboOnShelfAlert() {
@@ -59,6 +69,7 @@ class MyShelfViewController: AmiiboViewController {
     }
 }
 
+// MARK: MyShelfViewController Collection
 extension MyShelfViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -69,9 +80,8 @@ extension MyShelfViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = shelfCollectionView.dequeueReusableCell(withReuseIdentifier: "ShelfItem", for: indexPath) as? ShelfItemCollectionViewCell else {
-            return ShelfItemCollectionViewCell()
-        }
+        guard let cell = shelfCollectionView.dequeueReusableCell(withReuseIdentifier: "ShelfItem", for: indexPath) as? ShelfItemCollectionViewCell else { return ShelfItemCollectionViewCell() }
+
         let amiibo = searchResults[indexPath.row]
         cell.amiibo = amiibo
         return cell
@@ -87,6 +97,7 @@ extension MyShelfViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
+// MARK: MyShelfViewController AmiiboShelfDelegate
 extension MyShelfViewController: AmiiboShelfDelegate {
     func addedToShelf(amiibo: Amiibo) {
         self.amiiboItens.append(amiibo)

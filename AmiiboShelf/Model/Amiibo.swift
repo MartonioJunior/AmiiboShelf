@@ -10,6 +10,13 @@ import UIKit
 import CoreData
 
 class Amiibo {
+    // MARK: Constants
+    let missingID: String = "No ID"
+    let missingName: String = "No name"
+    let missingAmiiboSeries: String = "No amiibo series"
+    let missingGameSeries: String = "No game series"
+
+    // MARK: Variables
     var id: String
     var name: String
     var amiiboSeries: String
@@ -22,7 +29,8 @@ class Amiibo {
     var image: UIImage
     var onShelf: Bool
     var type: String
-    
+
+    // #MARK: Constructors
     init(with: CDAmiibo) {
         self.id = with.amiiboID ?? "No ID"
         self.name = with.characterName ?? "No name"
@@ -37,7 +45,8 @@ class Amiibo {
         self.onShelf = with.onShelf
         self.type = with.type ?? SearchType.figure.rawValue
     }
-    
+
+    // MARK: Static Methods
     static func from(cdAmiibos: [CDAmiibo]) -> [Amiibo] {
         var amiibos = [Amiibo]()
         for item in cdAmiibos {

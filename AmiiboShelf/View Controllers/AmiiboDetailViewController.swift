@@ -9,7 +9,7 @@
 import UIKit
 
 class AmiiboDetailViewController: UIViewController {
-    
+    // MARK: Outlets
     @IBOutlet weak var amiiboImage: UIImageView!
     @IBOutlet weak var amiiboName: UILabel!
     @IBOutlet weak var amiiboSeries: UILabel!
@@ -20,15 +20,15 @@ class AmiiboDetailViewController: UIViewController {
     @IBOutlet weak var auLaunchDate: UILabel!
     @IBOutlet weak var shelfButton: UIButton!
     
+    // MARK: Variables
     var amiibo: Amiibo?
     static var delegate: AmiiboShelfDelegate?
     
+    // MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let amiibo = amiibo else {
-            return
-        }
+        guard let amiibo = amiibo else { return }
         
         amiiboImage.image = amiibo.image
         amiiboName.text = amiibo.name
@@ -45,9 +45,8 @@ class AmiiboDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        guard amiibo != nil else {
-           return
-        }
+        guard amiibo != nil else { return }
+
         AmiiboImageManager.reloadImage(from: &amiibo!)
         amiiboImage.image = amiibo!.image
     }

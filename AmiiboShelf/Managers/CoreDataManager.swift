@@ -11,9 +11,12 @@ import CoreData
 import UserNotifications
 
 class CoreDataManager {
+    // MARK: Singleton
     static let current = CoreDataManager()
+
+    // MARK: Variables
     var dataDelegate: AmiiboDataDelegate?
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "AmiiboShelf")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -41,13 +44,14 @@ class CoreDataManager {
         }
         return saved
     }
-    
+
+    // MARK: Methods
     func fetch(predicate: String?, arg: String) -> [CDAmiibo] {
         let request = NSFetchRequest<CDAmiibo>(entityName: "CDAmiibo")
         if let format = predicate {
             request.predicate = NSPredicate(format: format, arg)
         }
-        
+
         do {
             let result = try persistentContainer.viewContext.fetch(request)
             return result

@@ -9,18 +9,22 @@
 import UIKit
 
 class CardViewController: AmiiboViewController {
+    // MARK: Outlets
     @IBOutlet weak var cardCollectionView: UICollectionView!
     
+    // MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         cardCollectionView.delegate = self
         cardCollectionView.dataSource = self
-        amiiboItens = Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllCardAmiibo())
+
+        amiiboItens = getCardAmiibo()
         registerForPreviewing(with: self, sourceView: cardCollectionView)
     }
 
     override func reloadData() {
-        amiiboItens = Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllCardAmiibo())
+        amiiboItens = getCardAmiibo()
         updateView()
     }
     
@@ -31,9 +35,9 @@ class CardViewController: AmiiboViewController {
     }
     
     override func source(forLocation location: CGPoint) -> AmiiboDisplayProtocol? {
-        guard let indexPath = cardCollectionView.indexPathForItem(at: location), let cell = cardCollectionView.cellForItem(at: indexPath) as? CardItemCollectionViewCell else {
-            return nil
-        }
+        guard let indexPath = cardCollectionView.indexPathForItem(at: location),
+              let cell = cardCollectionView.cellForItem(at: indexPath) as? CardItemCollectionViewCell else { return nil }
+
         return cell
     }
     
@@ -42,20 +46,26 @@ class CardViewController: AmiiboViewController {
             super.new(amiibo: amiibo)
         }
     }
+    
+    // MARK: Methods
+    func getCardAmiibo() -> [Amiibo] {
+        Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllCardAmiibo())
+    }
 }
 
+// MARK: CardViewController Collection
 extension CardViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResults.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = cardCollectionView.dequeueReusableCell(withReuseIdentifier: "Card", for: indexPath) as? CardItemCollectionViewCell else {
-            return CardItemCollectionViewCell()
-        }
+        guard let cell = cardCollectionView.dequeueReusableCell(withReuseIdentifier: "Card", for: indexPath) as? CardItemCollectionViewCell else { return CardItemCollectionViewCell() }
+
         let amiibo = searchResults[indexPath.row]
         cell.amiibo = amiibo
         return cell
@@ -70,5 +80,4 @@ extension CardViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let scaleSize = collectionView.frame.width/3.5
         return CGSize(width: scaleSize, height: scaleSize*1.5)
     }
-    
 }

@@ -9,14 +9,13 @@
 import UIKit
 
 class AmiiboImageManager {
+    // MARK: Static Variables
     static var dataDelegate: AmiiboDataDelegate?
-    
+
+    // MARK: Static Methods
     static func downloadImage(from apiModel: AmiiboAPIModel) {
-        guard let imageUrl = URL(string: apiModel.image) else {
-            //print("Image not found")
-            return
-        }
-        //print("Start Download \(imageUrl)")
+        guard let imageUrl = URL(string: apiModel.image) else { return }
+
         let task = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
             let amiiboID = apiModel.head+apiModel.tail
             guard let imageData = data, error == nil, let imageURL = AmiiboImageManager.fileURL(for: amiiboID) else {
@@ -25,6 +24,7 @@ class AmiiboImageManager {
             AmiiboImageManager.saveImage(data: imageData, onURL: imageURL)
             dataDelegate?.imageDownloaded(for: amiiboID)
         }
+
         DispatchQueue.global().async {
             task.resume()
         }
@@ -50,21 +50,19 @@ class AmiiboImageManager {
     }
     
     static func getImage(path: String?) -> UIImage {
-        guard var url = directoryURL(), let path = path else {
-            return #imageLiteral(resourceName: "Amiibo-No-Image.png")
-        }
+        guard var url = directoryURL(), let path = path else { return #imageLiteral(resourceName: "Amiibo-No-Image.png") }
         url.appendPathComponent(path)
         return UIImage(contentsOfFile: url.path) ?? #imageLiteral(resourceName: "Amiibo-No-Image.png")
     }
     
+    // TODO: Implement the method
     static func deleteImage(for amiibo: Amiibo) {
         
     }
     
     static func fileExists(for amiiboID: String) -> Bool? {
-        guard let path = self.filePath(for: amiiboID) else {
-            return nil
-        }
+        guard let path = self.filePath(for: amiiboID) else { return nil }
+
         do {
             var appDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             appDirectory.appendPathComponent(path)
@@ -93,7 +91,6 @@ class AmiiboImageManager {
             appDirectory = appDirectory.appendingPathComponent(amiiboID+".png")
             return appDirectory
         } catch {
-            //print("Unable to find path")
             return nil
         }
     }

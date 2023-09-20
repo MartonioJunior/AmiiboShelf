@@ -97,7 +97,7 @@
                     <connections>
                         <outlet property="amiiboTableView" destination="R7o-T1-4DM" id="rAZ-zH-uM9"/>
                         <outlet property="searchBar" destination="KXS-4E-SQF" id="GXV-fY-MDP"/>
-                        <segue destination="0u0-bZ-HHa" kind="modal" identifier="Detail" modalTransitionStyle="crossDissolve" id="U0T-cY-JPu"/>
+                        <segue destination="0u0-bZ-HHa" kind="presentation" identifier="Detail" id="U0T-cY-JPu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbb-Rb-Gen" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +182,7 @@
                     <connections>
                         <outlet property="cardCollectionView" destination="Giv-nW-XVm" id="2La-OM-ljR"/>
                         <outlet property="searchBar" destination="2Rq-uZ-2Zn" id="ucd-wc-s1v"/>
-                        <segue destination="0u0-bZ-HHa" kind="modal" identifier="Detail" modalTransitionStyle="crossDissolve" id="3HP-Mf-hh0"/>
+                        <segue destination="0u0-bZ-HHa" kind="presentation" identifier="Detail" id="3HP-Mf-hh0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPR-GS-J5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -566,7 +566,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3HP-Mf-hh0"/>
+        <segue reference="U0T-cY-JPu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AU-Flag" width="21.333333969116211" height="21.333333969116211"/>

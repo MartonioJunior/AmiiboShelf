@@ -10,14 +10,17 @@ import UIKit
 import UserNotifications
 
 class FigureViewController: AmiiboViewController {
+    // MARK: Outlets
     @IBOutlet weak var amiiboTableView: UITableView!
-    //var allAmiiboSeries = [String]()
     
+    // MARK: ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         amiiboTableView.delegate = self
         amiiboTableView.dataSource = self
-        amiiboItens = Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllFigureAmiibo())
+
+        amiiboItens = getFigureAmiibo()
         registerForPreviewing(with: self, sourceView: amiiboTableView)
     }
     
@@ -27,7 +30,7 @@ class FigureViewController: AmiiboViewController {
     }
     
     override func reloadData() {
-        amiiboItens = Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllFigureAmiibo())
+        amiiboItens = getFigureAmiibo()
         updateView()
     }
     
@@ -38,9 +41,8 @@ class FigureViewController: AmiiboViewController {
     }
     
     override func source(forLocation location: CGPoint) -> AmiiboDisplayProtocol? {
-        guard let indexPath = amiiboTableView.indexPathForRow(at: location), let cell = amiiboTableView.cellForRow(at: indexPath) as? FigureItemTableViewCell else {
-            return nil
-        }
+        guard let indexPath = amiiboTableView.indexPathForRow(at: location),
+              let cell = amiiboTableView.cellForRow(at: indexPath) as? FigureItemTableViewCell else { return nil }
         return cell
     }
     
@@ -50,17 +52,11 @@ class FigureViewController: AmiiboViewController {
         }
     }
     
-    func showNotificationRequiredAlert() {
-        let alertController = UIAlertController (title: "Notifications", message: "Notifications are used to inform you when the local Amiibo database is being updated and about any amiibo releases. Your application will still fetch new data without them, but you won't be informed about any updates", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
-            alertController.dismiss(animated: true, completion: nil)
-        })
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-        
+    // MARK: Methods
+    func getFigureAmiibo() -> [Amiibo] {
+        return Amiibo.from(cdAmiibos: CoreDataManager.current.fetchAllFigureAmiibo())
     }
-    
+
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             guard settings.authorizationStatus == .authorized else {
@@ -72,8 +68,21 @@ class FigureViewController: AmiiboViewController {
             }
         }
     }
+
+    func showNotificationRequiredAlert() {
+        let alertController = UIAlertController (title: "Notifications", message: "Notifications are used to inform you when the local Amiibo database is being updated and about any amiibo releases. Your application will still fetch new data without them, but you won't be informed about any updates", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
 }
 
+// MARK: FigureViewController TableView
 extension FigureViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -84,9 +93,8 @@ extension FigureViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = amiiboTableView.dequeueReusableCell(withIdentifier: "Figure") as? FigureItemTableViewCell else {
-            return FigureItemTableViewCell()
-        }
+        guard let cell = amiiboTableView.dequeueReusableCell(withIdentifier: "Figure") as? FigureItemTableViewCell else { return FigureItemTableViewCell() }
+
         let amiibo = searchResults[indexPath.row]
         cell.amiibo = amiibo
         return cell
@@ -96,12 +104,4 @@ extension FigureViewController: UITableViewDelegate, UITableViewDataSource {
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: nil)
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if (tableView.frame.height > 800) {
-//            return 120
-//        } else {
-//            return 85
-//        }
-//    }
 }

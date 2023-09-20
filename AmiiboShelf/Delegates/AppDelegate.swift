@@ -12,9 +12,10 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    // MARK: Variables
     var window: UIWindow?
 
+    // MARK: Application Lifecycle
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         registerForPushNotifications()
@@ -59,14 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { (granted, error) in
-            guard error == nil else {
-                //print(error?.localizedDescription)
-                return
-            }
+            guard error == nil else { return }
+
             if granted {
                 self.getNotificationSettings()
             }
-            CoreDataManager.current.updateCoreData()
+            CoreDataManager.current.updateAmiibosFromAPI()
             return
         }
         
@@ -76,6 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             //print("Settings: \(settings)")
             guard settings.authorizationStatus == .authorized else { return }
+
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
             }

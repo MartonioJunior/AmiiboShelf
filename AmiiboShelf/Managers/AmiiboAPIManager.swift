@@ -14,17 +14,13 @@ class AmiiboAPIManager {
     static let current = AmiiboAPIManager()
     let apiPath = "https://www.amiiboapi.com/api/"
     
+    // MARK: Methods
     func getDataFromAPI(query: String, finishedWith: @escaping ([AmiiboAPIModel]) -> Void) {
-        guard let queryUrl = URL(string: apiPath+query) else {
-            //print("Unable to create URL")
-            return
-        }
+        guard let queryUrl = URL(string: apiPath+query) else { return }
+
         self.notify(message: "Looking for new amiibo... Please wait...", identifier: "fetchAPI", thread: "updatingData")
         let task = URLSession.shared.dataTask(with: queryUrl) { data,response,error in
-            guard let apiData = data, error == nil else {
-                //print(error)
-                return
-            }
+            guard let apiData = data, error == nil else { return }
             
             do {
                 let result = try JSONDecoder().decode(AmiiboAPIStruct.self, from: apiData)
