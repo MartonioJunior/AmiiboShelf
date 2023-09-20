@@ -111,13 +111,3 @@ extension MyShelfViewController: AmiiboShelfDelegate {
         self.updateView()
     }
 }
-
-extension UIImage {
-    func resize(width: Int, height: Int) -> UIImage? {
-        let size = CGSize(width: width, height: height)
-        UIGraphicsBeginImageContext(size)
-        self.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-        return resizedImage
-    }
-}
