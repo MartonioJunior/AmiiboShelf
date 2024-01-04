@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg5-Mo-D1Z">
+                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="Figure List" image="Figure-Icon" id="cEI-Re-eHa"/>
+                                    <tabBarItem title="Card List" image="Card-Icon" id="UMC-qF-sXh"/>
+                                    <tabBarItem title="My Shelf" image="Shelf-Icon" id="HAD-ov-282"/>
+                                </items>
+                                <color key="tintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.0039215686269999999" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tabBar>
+                            <searchBar contentMode="redraw" placeholder="Search figures..." translatesAutoresizingMaskIntoConstraints="NO" id="xG2-cg-yDz">
+                                <rect key="frame" x="0.0" y="48" width="414" height="56"/>
+                                <color key="barTintColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1jJ-NQ-j4k">
+                                <rect key="frame" x="0.0" y="104" width="414" height="709"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.2666666667" green="0.52941176469999995" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hg5-Mo-D1Z" secondAttribute="bottom" id="C2e-kJ-2Tx"/>
+                            <constraint firstItem="1jJ-NQ-j4k" firstAttribute="top" secondItem="xG2-cg-yDz" secondAttribute="bottom" id="Jgd-WZ-xsX"/>
+                            <constraint firstItem="xG2-cg-yDz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Mtl-wQ-bEN"/>
+                            <constraint firstItem="1jJ-NQ-j4k" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QbS-kK-4mc"/>
+                            <constraint firstItem="xG2-cg-yDz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bYf-2F-oq8"/>
+                            <constraint firstItem="hg5-Mo-D1Z" firstAttribute="top" secondItem="1jJ-NQ-j4k" secondAttribute="bottom" id="oVp-Xx-IRg"/>
+                            <constraint firstItem="hg5-Mo-D1Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="p9E-XM-ria"/>
+                            <constraint firstItem="hg5-Mo-D1Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rDX-Cq-85Z"/>
+                            <constraint firstItem="xG2-cg-yDz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tcG-dd-Gw7"/>
+                            <constraint firstItem="1jJ-NQ-j4k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vhq-GY-cWs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49.275362318840585" y="373.66071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Card-Icon" width="25" height="25"/>
+        <image name="Figure-Icon" width="25" height="25"/>
+        <image name="Shelf-Icon" width="25" height="25"/>
+    </resources>
+</document>

@@ -7,52 +7,51 @@
 //
 
 import UIKit
-import CoreData
+import SwiftData
+import Core
 
-// TODO: Consider breaking up the data in the class into structures
-class Amiibo {
-    // MARK: Constants
-    let missingID: String = "No ID"
-    let missingName: String = "No name"
-    let missingAmiiboSeries: String = "No amiibo series"
-    let missingGameSeries: String = "No game series"
-
+@Model final public class Amiibo {
     // MARK: Variables
-    var id: String
+    @Attribute(.unique) public var id: String
     var name: String
     var amiiboSeries: String
     var gameSeries: String
+    var onShelf: Bool
+    var type: String
+
     var auRelease: Date?
     var euRelease: Date?
     var jpRelease: Date?
     var naRelease: Date?
     var imagePath: String?
-    var image: UIImage
-    var onShelf: Bool
-    var type: String
 
-    // #MARK: Constructors
-    init(with: CDAmiibo) {
-        self.id = with.amiiboID ?? missingID
-        self.name = with.characterName ?? missingName
-        self.amiiboSeries = with.amiiboSeries ?? missingAmiiboSeries
-        self.gameSeries = with.gameSeries ?? missingGameSeries
-        self.auRelease = with.auReleaseDate
-        self.euRelease = with.euReleaseDate
-        self.jpRelease = with.jpReleaseDate
-        self.naRelease = with.naReleaseDate
-        self.imagePath = with.imageURL
-        self.image = Amiibo.getImage(path: self.imagePath)
-        self.onShelf = with.onShelf
-        self.type = with.type ?? SearchType.figure.rawValue
+    // MARK: Constructors
+    init(id: String, name: String, type: String, amiiboSeries: String? = nil, gameSeries: String? = nil,
+         releaseData: ReleaseDateInfo? = nil, imagePath: String? = nil, addToShelf: Bool) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.amiiboSeries = amiiboSeries ?? Placeholder.amiiboSeries.rawValue
+        self.gameSeries = gameSeries ?? Placeholder.gameSeries.rawValue
+        self.onShelf = addToShelf
+
+        releaseData?.apply(to: self)
+        set(imagePath: imagePath ?? "")
     }
 
-    // MARK: Static Methods
-    static func from(cdAmiibos: [CDAmiibo]) -> [Amiibo] {
-        return cdAmiibos.map { Amiibo(with: $0) }
+    // MARK: Methods
+    func fetchImage(using api: AmiiboAPI = .current) -> UIImage {
+        api.getImage(from: LocalEndpoint(imagePath ?? ""))
     }
 
-    static func getImage(path: String?) -> UIImage {
-        return AmiiboImageManager.getImage(path: path)
+    func set(imageURL: URL) {
+        set(imagePath: imageURL.absoluteString)
+    }
+
+    func set(imagePath: String) {
+        self.imagePath = imagePath
     }
 }
+
+// MARK: Identifiable
+extension Amiibo: Identifiable {}
